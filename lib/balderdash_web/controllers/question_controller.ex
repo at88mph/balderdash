@@ -17,6 +17,7 @@ defmodule BalderdashWeb.QuestionController do
   # Random pick from the database.
   def random(conn, %{"count" => count}) do
     questions = Questions.random_questions(count)
+                |> Enum.map(fn q -> %{id: q.id, text: q.text, answers: Enum.shuffle([q.answer, q.incorrect_one, q.incorrect_two, q.incorrect_three, q.incorrect_four])} end )
     render(conn, "ask.html", questions: questions)
   end
 
