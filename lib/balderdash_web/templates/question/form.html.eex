@@ -1,0 +1,47 @@
+<%= form_for @changeset, @action, [id: "create_question_form"], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :text %>
+    <%= text_input f, :text, ["class": "form-control"] %>
+    <%= error_tag f, :text %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :answer %>
+    <%= text_input f, :answer, ["class": "form-control"] %>
+    <%= error_tag f, :answer %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :incorrect_one %>
+    <%= text_input f, :incorrect_one, ["class": "form-control"] %>
+    <%= error_tag f, :incorrect_one %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :incorrect_two %>
+    <%= text_input f, :incorrect_two, ["class": "form-control"] %>
+    <%= error_tag f, :incorrect_two %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :incorrect_three %>
+    <%= text_input f, :incorrect_three, ["class": "form-control"] %>
+    <%= error_tag f, :incorrect_three %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :incorrect_four %>
+    <%= text_input f, :incorrect_four, ["class": "form-control"] %>
+    <%= error_tag f, :incorrect_four %>
+  </div>
+
+  <div>
+    <%= submit "Save", [class: "btn btn-primary"] %>
+  </div>
+<% end %>

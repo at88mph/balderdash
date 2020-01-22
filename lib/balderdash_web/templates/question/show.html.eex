@@ -1,0 +1,36 @@
+<h1>Show Question</h1>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <strong>Text:</strong>
+    <%= @question.text %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Answer:</strong>
+    <%= @question.answer %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Incorrect one:</strong>
+    <%= @question.incorrect_one %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Incorrect two:</strong>
+    <%= @question.incorrect_two %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Incorrect three:</strong>
+    <%= @question.incorrect_three %>
+  </li>
+
+  <li class="list-group-item">
+    <strong>Incorrect four:</strong>
+    <%= @question.incorrect_four %>
+  </li>
+</ul>
+
+<span><%= link "Edit", to: Routes.question_path(@conn, :edit, @question) %></span>
+<span><%= link "Back", to: Routes.question_path(@conn, :index) %></span>

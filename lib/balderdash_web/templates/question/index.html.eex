@@ -1,0 +1,39 @@
+<h1>All Questions</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Text</th>
+      <th scope="col">Answer</th>
+      <th scope="col">Incorrect one</th>
+      <th scope="col">Incorrect two</th>
+      <th scope="col">Incorrect three</th>
+      <th scope="col">Incorrect four</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for question <- @questions do %>
+    <tr>
+      <th scope="row"><%= question.id %></th>
+      <td><%= question.text %></td>
+      <td><%= question.answer %></td>
+      <td><%= question.incorrect_one %></td>
+      <td><%= question.incorrect_two %></td>
+      <td><%= question.incorrect_three %></td>
+      <td><%= question.incorrect_four %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.question_path(@conn, :show, question) %></span>
+        <span><%= link "Edit", to: Routes.question_path(@conn, :edit, question) %></span>
+        <span><%= link "Delete", to: Routes.question_path(@conn, :delete, question), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Question", to: Routes.question_path(@conn, :new) %></span>
+<br />
+<br />
