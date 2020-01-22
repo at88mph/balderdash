@@ -1,16 +1,14 @@
-<h1>Are you really a Jenkins?</h1>
-<br />
 <%= for question <- @questions do %>
-    <h3><%= question.text %></h3>
-    <form id="question_<%= question.id %>" action="<%= Routes.question_path(@conn, :create) %>">
-      <%= for {answer, index} <- Enum.with_index(question.answers) do %>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="answers" id="answer_<%= index %>" value="">
-          <label class="form-check-label" for="answer_<%= index %>">
-            <%= answer %>
-          </label>
-        </div>
-      <% end %>
-    </form>
-    <br />
+  <h3><%= question.text %></h3>
+  <form id="question_<%= question.id %>" action="<%= Routes.question_path(@conn, :create) %>">
+    <%= for {answer, index} <- Enum.with_index(question.answers) do %>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="answers" id="answer_<%= index %>" value="">
+        <label class="form-check-label" for="answer_<%= index %>">
+          <%= answer %>
+        </label>
+      </div>
+    <% end %>
+  </form>
+  <br />
 <% end %>
