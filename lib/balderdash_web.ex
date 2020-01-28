@@ -24,6 +24,7 @@ defmodule BalderdashWeb do
       import Plug.Conn
       import BalderdashWeb.Gettext
       alias BalderdashWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -42,6 +43,7 @@ defmodule BalderdashWeb do
       import BalderdashWeb.ErrorHelpers
       import BalderdashWeb.Gettext
       alias BalderdashWeb.Router.Helpers, as: Routes
+      import Phoenix.LiveView.Controller
     end
   end
 
@@ -50,6 +52,7 @@ defmodule BalderdashWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Controller
     end
   end
 

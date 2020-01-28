@@ -22,15 +22,15 @@ defmodule Balderdash.Questions do
   end
 
   @doc """
-  Selects random questions.
+  Selects a random question.
   """
-  def random_questions(count \\ 1) do
+  def random_question(exclude_ids \\ []) do
     query =
       from Question,
       order_by: fragment("RANDOM()"),
-      limit: ^count
+      limit: 1
   
-    Repo.all(query)
+    Repo.one(query)
   end
 
   @doc """

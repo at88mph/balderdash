@@ -1,6 +1,12 @@
 defmodule BalderdashWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :balderdash
 
+  socket "/live", Phoenix.LiveView.Socket
+
+  #socket "/live", Phoenix.LiveView.Socket,
+  #  websocket: true,
+  #  connect_info: [session: @session_options]]
+
   socket "/socket", BalderdashWeb.UserSocket,
     websocket: true,
     longpoll: false

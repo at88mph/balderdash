@@ -1,6 +1,7 @@
 <h3><%= @question.text %></h3>
-  <%= f = form_for :changeset, Routes.question_path(@conn, :check_answer, @question.id), [id: @question.id, method: "post"] %>
-    <%= for {answer, index} <- Enum.with_index(Enum.shuffle([@question.answer, @question.incorrect_one, @question.incorrect_two, @question.incorrect_three, @question.incorrect_four])) do %>
+  <%= f = form_for :changeset, "#", [id: @question.id, phx_submit: :check_answer] %>
+    <%= hidden_input(f, "question_id", [value: Integer.to_string(@question.id)]) %>
+    <%= for {answer, index} <- Enum.with_index(@answers) do %>
       <%= text_input(f, "answer_index_" <> Integer.to_string(index), [name: "answer_index_" <> Integer.to_string(index), type: "hidden", value: answer]) %>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="answer" id="answer_<%= index %>" value="<%= answer %>">
@@ -10,6 +11,6 @@
       </div>
     <% end %>
     <div class="mt-4">
-      <%= submit "Check it!", [class: "btn btn-primary"] %>
+      <%= submit @submit_button_text, [class: "btn btn-primary"] %>
     </div>
   </form>

@@ -15,7 +15,10 @@ config :balderdash, BalderdashWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "6GirKSIdTuRY0OD5mkwi+VfobYZ2imnGpw3hk8LFcsQsmFveXgiG21d4nIWTuV0a",
   render_errors: [view: BalderdashWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Balderdash.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Balderdash.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "FM3mS7GxI5N6uXsJIhsg3F66y/S8+8zZ"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,6 +27,9 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :phoenix,
+  template_engines: [leex: Phoenix.LiveView.Engine]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

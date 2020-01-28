@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <%= csrf_meta_tag() %>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -16,10 +17,7 @@
             <img id="logo" src="<%= Routes.static_path(@conn, "/images/jenkins_family_40pct.png") %>" />
             <ul class="nav flex-column">
               <li class="nav-item">
-                <%= link "Rando", [class: "nav-link", to: Routes.question_path(@conn, :random, 1)] %>
-              </li>
-              <li class="nav-item">
-                <%= link "Ten Randos", [class: "nav-link", to: Routes.question_path(@conn, :random, 10)] %>
+                <%= link "Balderdash", [class: "nav-link", to: Routes.question_path(@conn, :random)] %>
               </li>
             </ul>
           </div>
