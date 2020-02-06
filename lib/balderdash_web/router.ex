@@ -26,7 +26,7 @@ defmodule BalderdashWeb.Router do
 
     get "/balderdash/rando", QuestionController, :random
     post "/balderdash/check/:id", QuestionController, :check_answer
-    
+
     get "/questions", QuestionController, :index
     get "/question", QuestionController, :new
     post "/question", QuestionController, :create

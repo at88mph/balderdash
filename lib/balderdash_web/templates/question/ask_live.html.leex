@@ -1,5 +1,5 @@
 <h3><%= @question.text %></h3>
-  <%= f = form_for :changeset, "#", [id: @question.id, phx_submit: :check_answer] %>
+  <%= f = form_for :changeset, Routes.question_path(@socket, :check_answer, @question.id), [id: @question.id, phx_submit: :check_answer] %>
     <%= hidden_input(f, "question_id", [value: Integer.to_string(@question.id)]) %>
     <%= for {answer, index} <- Enum.with_index(@answers) do %>
       <%= text_input(f, "answer_index_" <> Integer.to_string(index), [name: "answer_index_" <> Integer.to_string(index), type: "hidden", value: answer]) %>
@@ -11,6 +11,6 @@
       </div>
     <% end %>
     <div class="mt-4">
-      <%= submit @submit_button_text, [class: "btn btn-primary"] %>
+      <%= submit "Check it", [class: "btn btn-primary"] %>
     </div>
   </form>

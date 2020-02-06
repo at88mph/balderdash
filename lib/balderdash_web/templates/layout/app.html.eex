@@ -10,11 +10,14 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
+    <header class="border-bottom p-2">
+      <h1>Balderdash Trivia</h1>
+    </header>
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-3 d-none d-md-block bg-light sidebar">
+        <nav class="col-md-3 d-none d-md-block sidebar">
           <div class="sidebar-sticky">
-            <img id="logo" src="<%= Routes.static_path(@conn, "/images/jenkins_family_40pct.png") %>" />
+            <img id="logo" class="rounded" src="<%= Routes.static_path(@conn, "/images/jenkins_family_40pct.png") %>" alt="Balderdash logo" />
             <ul class="nav flex-column">
               <li class="nav-item">
                 <%= link "Balderdash", [class: "nav-link", to: Routes.question_path(@conn, :random)] %>
