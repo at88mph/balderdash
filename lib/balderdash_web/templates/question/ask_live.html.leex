@@ -5,12 +5,16 @@
       <%= text_input(f, "answer_index_" <> Integer.to_string(index), [name: "answer_index_" <> Integer.to_string(index), type: "hidden", value: answer]) %>
       <div class="form-check">
         <input class="form-check-input" type="radio" name="answer" id="answer_<%= index %>" value="<%= answer %>">
-        <label class="form-check-label" for="answer_<%= index %>">
+        <label class="form-check-label <%= Enum.at(@answer_decorations, index) %>" for="answer_<%= index %>">
           <%= answer %>
         </label>
       </div>
     <% end %>
     <div class="mt-4">
-      <%= submit "Check it", [class: "btn btn-primary"] %>
+      <%= if Enum.empty?(@answer_decorations) do %>
+        <%= submit "Check it", [class: "btn btn-primary"] %>
+      <% else %>
+        <a href="<%= Routes.question_path(@socket, :random) %>">Next question</a>
+      <% end %>
     </div>
   </form>

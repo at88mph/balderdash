@@ -22,7 +22,7 @@ defmodule BalderdashWeb.QuestionController do
     question = Questions.random_question()
     answers = Enum.shuffle([question.answer, question.incorrect_one, question.incorrect_two, question.incorrect_three, question.incorrect_four])
     LiveView.Controller.live_render(conn, BalderdashWeb.AskQuestionView,
-                                    session: %{"question" => question, "answers" => answers, "submit_button_text" => "Check answer"})
+                                    session: %{"question" => question, "answers" => answers, "answer_decorations" => []})
   end
 
   def create(conn, %{"question" => question_params}) do
