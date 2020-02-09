@@ -1,3 +1,4 @@
 <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Balderdash" %></h1>
+  <a alt="Start here." href="<%= Routes.question_path(@conn, :random) %>" class="btn btn-primary stretched-link text-light">Start!</a>
 </section>
