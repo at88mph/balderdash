@@ -10,6 +10,7 @@ defmodule BalderdashWeb.AskQuestionView do
   def mount(_params, session, socket) do
     {:ok, assign(socket, question: session["question"],
                          answer_decorations: session["answer_decorations"],
+                         check_message: session["check_message"],
                          answers: session["answers"])}
   end
 
@@ -20,6 +21,13 @@ defmodule BalderdashWeb.AskQuestionView do
     answers = Enum.filter(params, fn {k, _v} -> String.starts_with?(k, "answer_index_") end)
               |> List.keysort(0)
               |> Enum.map(fn {_k, v} -> v end)
+
+    check_message = cond do
+                      answer == question.answer ->
+                        "Correct!"
+                      true ->
+                        "Incorrect.  Try again."
+                    end
 
     answer_decorations = answers
                          |> Enum.map(fn a -> cond do
@@ -32,6 +40,6 @@ defmodule BalderdashWeb.AskQuestionView do
                                              end
                                      end)
 
-    {:noreply, assign(socket, question: question, answers: answers, answer_decorations: answer_decorations)}
+    {:noreply, assign(socket, question: question, answers: answers, answer_decorations: answer_decorations, check_message: check_message)}
   end
 end

@@ -1,9 +1,9 @@
-<h3><%= @question.text %></h3>
+<h2><%= @question.text %></h2>
   <%= f = form_for :changeset, Routes.question_path(@socket, :check_answer, @question.id), [id: @question.id, phx_submit: :check_answer] %>
     <%= hidden_input(f, "question_id", [value: Integer.to_string(@question.id)]) %>
     <%= for {answer, index} <- Enum.with_index(@answers) do %>
       <%= text_input(f, "answer_index_" <> Integer.to_string(index), [name: "answer_index_" <> Integer.to_string(index), type: "hidden", value: answer]) %>
-      <div class="form-check">
+      <div class="form-check py-1">
         <input class="form-check-input" type="radio" name="answer" id="answer_<%= index %>" value="<%= answer %>">
         <label class="form-check-label <%= Enum.at(@answer_decorations, index) %>" for="answer_<%= index %>">
           <%= answer %>
@@ -11,10 +11,11 @@
       </div>
     <% end %>
     <div class="mt-4">
+      <p><%= @check_message %></p>
       <%= if Enum.empty?(@answer_decorations) do %>
         <%= submit "Check it", [class: "btn btn-primary"] %>
       <% else %>
-        <a href="<%= Routes.question_path(@socket, :random) %>">Next question</a>
+        <a href="<%= Routes.question_path(@socket, :random) %>">Next question ></a>
       <% end %>
     </div>
   </form>

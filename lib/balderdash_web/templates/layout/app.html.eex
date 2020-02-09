@@ -11,22 +11,23 @@
   </head>
   <body>
     <header class="border-bottom p-2">
-      <h1>Balderdash Trivia</h1>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#"><img id="logo" src="<%= Routes.static_path(@conn, "/images/jenkins_family_20pct.png") %>" /></a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="<%= Routes.question_path(@conn, :random) %>" tabindex="0">Balderdash!</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
-    <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-3 d-none d-md-block sidebar">
-          <div class="sidebar-sticky">
-            <img id="logo" class="rounded" src="<%= Routes.static_path(@conn, "/images/jenkins_family_40pct.png") %>" alt="Balderdash logo" />
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <%= link "Balderdash", [class: "nav-link", to: Routes.question_path(@conn, :random)] %>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-        <main role="main" class="col-md-8 ml-sm-auto col-lg-9 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+    <div class="container">
+      <div class="row col-md-9 col-lg-9">
+        <main role="main" class="px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
           <div class="align-items-center pt-3 pb-2 mb-3 border-bottom">
             <%= render @view_module, @view_template, assigns %>
           </div>
