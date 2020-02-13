@@ -1,6 +1,7 @@
 defmodule Balderdash.Questions.Question do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Timex
 
   schema "questions" do
     field :answer, :string
@@ -9,7 +10,7 @@ defmodule Balderdash.Questions.Question do
     field :incorrect_three, :string
     field :incorrect_two, :string
     field :text, :string
-    field :last_read_at, :utc_datetime
+    field :last_read_at, :utc_datetime, default: DateTime.truncate(DateTime.utc_now(), :second)
 
     timestamps()
   end

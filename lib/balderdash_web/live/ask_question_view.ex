@@ -2,7 +2,6 @@ defmodule BalderdashWeb.AskQuestionView do
   use Phoenix.LiveView
 
   alias Balderdash.Questions
-  alias Balderdash.Questions.Question
   alias Timex
 
   def render(assigns) do
