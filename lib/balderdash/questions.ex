@@ -27,9 +27,9 @@ defmodule Balderdash.Questions do
   def random_question(exclude_ids \\ []) do
     query =
       from Question,
-      order_by: fragment("RANDOM()"),
+      order_by: fragment("last_read_at asc"),
       limit: 1
-  
+
     Repo.one(query)
   end
 

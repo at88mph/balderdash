@@ -9,6 +9,7 @@ defmodule Balderdash.Questions.Question do
     field :incorrect_three, :string
     field :incorrect_two, :string
     field :text, :string
+    field :last_read_at, :utc_datetime
 
     timestamps()
   end
@@ -16,7 +17,7 @@ defmodule Balderdash.Questions.Question do
   @doc false
   def changeset(question, attrs) do
     question
-    |> cast(attrs, [:text, :answer, :incorrect_one, :incorrect_two, :incorrect_three, :incorrect_four])
-    |> validate_required([:text, :answer, :incorrect_one, :incorrect_two, :incorrect_three, :incorrect_four])
+    |> cast(attrs, [:text, :answer, :incorrect_one, :incorrect_two, :incorrect_three, :incorrect_four, :last_read_at])
+    |> validate_required([:text, :answer, :incorrect_one, :incorrect_two, :incorrect_three, :incorrect_four, :last_read_at])
   end
 end

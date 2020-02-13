@@ -2,6 +2,8 @@ defmodule BalderdashWeb.AskQuestionView do
   use Phoenix.LiveView
 
   alias Balderdash.Questions
+  alias Balderdash.Questions.Question
+  alias Timex
 
   def render(assigns) do
     BalderdashWeb.QuestionView.render("ask_live.html", assigns)
@@ -39,6 +41,9 @@ defmodule BalderdashWeb.AskQuestionView do
                                                  ""
                                              end
                                      end)
+
+    question
+    |> Questions.update_question(%{:last_read_at => Timex.now()})
 
     {:noreply, assign(socket, question: question, answers: answers, answer_decorations: answer_decorations, check_message: check_message)}
   end

@@ -16,7 +16,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a class="navbar-brand" href="#"><img id="logo" src="<%= Routes.static_path(@conn, "/images/jenkins_family_20pct.png") %>" /></a>
+          <a class="navbar-brand" href="#"><img id="logo" src="<%= Routes.static_path(@conn, "/images/jenkins_family_15pct.png") %>" /></a>
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="<%= Routes.question_path(@conn, :random) %>" tabindex="0">Balderdash!</a>
